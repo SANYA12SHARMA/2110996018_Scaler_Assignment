@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from 'cors';
 import dotenv from 'dotenv';
-import userRoute from './routes.js';
+import pathRoute from './routes/findShortestPath.js';
 dotenv.config();
 
 const app = express();
@@ -32,7 +32,7 @@ const connectDB = async()=>{
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/api/use',userRoute);
+app.use('/api/use',pathRoute);
 
 app.listen(port, ()=>{
     connectDB();

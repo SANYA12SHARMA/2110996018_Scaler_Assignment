@@ -2,9 +2,9 @@ import express from "express";
 const router = express.Router();
 import {spawn} from "child_process";
 
-router.get('/checkPath', async (req, res) => {
-    const source = parseInt(req.query.source);
-    const destination = parseInt(req.query.destination);
+router.get('/shortestPath', async (req, res) => {
+    const source = parseInt(req.body.source);
+    const destination = parseInt(req.body.destination);
 
     // Check if source and destination are valid integers
     if (isNaN(source) || isNaN(destination)) {
@@ -22,20 +22,20 @@ router.get('/checkPath', async (req, res) => {
     }
     let Data = "";
     
-    const javaprog = spawn('java', ['-cp', './algorithm', 'shortestPath', source, destination]);
+    const javaProgram = spawn('java', ['-cp', './algorithm', 'shortestPath', source, destination]);
 
     
-    javaprog.stderr.on('data', (data) => {
+    javaProgram.stderr.on('data', (data) => {
         console.error(`stderr: ${data}`);
     });
     
-    javaprog.stdout.on('data', function (data) {
+    javaProgram.stdout.on('data', function (data) {
         console.log(data.toString());
         // If you want to store the data, you can append it to the Data variable
         Data += data.toString();
     });
     
-    javaprog.on('close', (code) => {
+    javaProgram.on('close', (code) => {
         res.send(Data);
     });
 });
