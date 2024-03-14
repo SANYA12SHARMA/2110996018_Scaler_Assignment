@@ -1,11 +1,12 @@
 import './App.css';
 import Layout from './Layout/Layout';
-function App() {
+
+const App = (props) => {
   return (
     <div className="App">
-      <Layout /> 
-    </div>
-  );
+    <Layout /> 
+  </div>
+  )
 }
 
 export default App;
