@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 import dotenv from 'dotenv';
 import pathRoute from './routes/findShortestPath.js';
+import cabRoute from './routes/findCab.js';
 dotenv.config();
 
 const app = express();
@@ -32,7 +33,8 @@ const connectDB = async()=>{
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/api/use',pathRoute);
+app.use('/api/path',pathRoute);
+app.use('/api/cab',cabRoute);
 
 app.listen(port, ()=>{
     connectDB();
