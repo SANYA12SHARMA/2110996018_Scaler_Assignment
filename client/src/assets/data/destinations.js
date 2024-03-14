@@ -1,0 +1,26 @@
+export const destinations = [
+    {
+        "id":0,
+        "label":"Ambala"
+    },
+    {
+        "id":1,
+        "label":"Ludhiana"
+    },
+    {
+        "id":2,
+        "label":"Chandigarh"
+    },
+    {
+        "id":3,
+        "label":"Delhi"
+    },
+    {
+        "id":4,
+        "label":"Amritsar"
+    },
+    {
+        "id":5,
+        "label":"Noida"
+    }
+]
