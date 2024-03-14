@@ -1,5 +1,5 @@
 import CabUsers from '../models/CabUserSchema.js';
-export const userData = async() => {
+export const userData = async(req,res) => {
     try {
         const users = await CabUsers.find();
         if (users.length > 0) {

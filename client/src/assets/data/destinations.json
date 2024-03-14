@@ -1,4 +1,4 @@
-export const destinations = [
+[
     {
         "id":0,
         "label":"Ambala"

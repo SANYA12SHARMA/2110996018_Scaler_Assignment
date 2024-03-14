@@ -1,9 +1,8 @@
-import './App.css';
 import Layout from './Layout/Layout';
-
+import './App.css';
 const App = (props) => {
   return (
-    <div className="App">
+    <div className='App'>
     <Layout /> 
   </div>
   )

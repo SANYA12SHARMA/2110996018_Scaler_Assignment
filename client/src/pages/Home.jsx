@@ -1,7 +1,7 @@
 import React from 'react';
 import logo1 from '../assets/images/logo1.jpg';
 import { Link } from 'react-router-dom';
-const Home = () => {
+const Home = (props) => {
   return (
     <>
         <section>

@@ -1,6 +1,6 @@
 import CabUsers from '../models/CabUserSchema.js';
 import Booking from '../models/BookingSchema.js';
-export const bookCab = async () => {
+export const bookCab = async (req,res) => {
     try{
         const { userEmail, userCabData, totalTime, totalPrice, source, destination } = req.body;
         const timestamp = new Date().toISOString();
