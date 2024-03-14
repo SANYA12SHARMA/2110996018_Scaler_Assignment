@@ -1,4 +1,4 @@
-import Cabs from "../models/Cabs"
+import Cabs from "../models/Cabs.js"
 export const findCab = async (req,res) => {
     try{
         const cabs = await Cabs.find();
