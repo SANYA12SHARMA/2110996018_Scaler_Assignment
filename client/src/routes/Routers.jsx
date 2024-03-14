@@ -6,6 +6,7 @@ import Home from '../pages/Home';
 import { useEffect,useState } from 'react';
 import Axios from 'axios';
 import destinationsId from '../assets/data/destinationsId.json';
+import Cabs from '../pages/Cabs';
 const Routers = (props) => {
 
   
@@ -83,7 +84,8 @@ const Routers = (props) => {
 
 
   function checkFairClicked()
-  {var emailCheck=/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  {
+    var emailCheck=/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if(emailCheck.test(email)===false)
     {
       alert("Email is incorrect");
@@ -102,7 +104,7 @@ const Routers = (props) => {
 
 
     
-    setCabDisplayLoading(true)
+    setCabDisplayLoading(true);
     Axios.post("http://localhost:5000/api/path/shortestPath",
     {
       source:destinationsId[sourceLocation],
@@ -138,7 +140,7 @@ const Routers = (props) => {
   }
   return (
     <Routes>
-      <Route path="/users" element={<Users/>}/>
+      <Route path="/users" element={<Users  flag={1} allUsers={allUsers} allUserLoading={allUserLoading}/>}/>
       <Route path="/" element={<Home/>}/>
       <Route path="/home" element={<Home/>}/>
       <Route path="/bookings" element={<Bookings changeDest={changeDest} sourceLocation={sourceLocation} 
@@ -146,6 +148,8 @@ const Routers = (props) => {
           changeSource={changeSource} destLocation={destLocation}
           checkFairClicked={checkFairClicked} cabData={cabData}
           cabDisplayLoading={cabDisplayLoading} cabBookClicked={cabBookClicked}/>}/>
+          <Route path="/cabs" element={<Cabs flag={0}
+        allCabs={allCabs} allCabsLoading={allCabsLoading}/>}/>
     </Routes>
   )
 }

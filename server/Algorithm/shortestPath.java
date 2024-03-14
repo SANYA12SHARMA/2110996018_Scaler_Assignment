@@ -23,7 +23,7 @@ public class shortestPath {
             return;
         }
         int ans = findShortestPath(distArray, source,destination);
-        System.out.println("Shortest path from node " + source + " to node " + destination + ": " + ans);
+        System.out.println(ans);
     }
     public static int findShortestPath(int[][] distArray, int source,int destination) {
         int noOfDestinations = distArray.length;

@@ -28,6 +28,7 @@ export const bookCab = async (req,res) => {
         });
         res.status(200).send({ message: existingUser ? "UpdateSuccess" : "InsertUpdateSuccess", data: userEmail });
     }catch (error) {
+        console.error("Error in bookCab:", error);
         res.status(404).json({ message: error.message });
     }
 }

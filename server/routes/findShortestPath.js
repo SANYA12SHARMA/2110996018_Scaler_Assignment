@@ -2,6 +2,6 @@ import express from "express";
 const router = express.Router();
 import {getShortestPath} from "../controllers/pathController.js";
 
-router.get('/shortestPath', getShortestPath);
+router.post('/shortestPath', getShortestPath);
 
 export default router;

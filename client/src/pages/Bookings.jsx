@@ -77,7 +77,7 @@ const Booking = (props) => {
                     </div>
                     <div className="booking__left__button">
                         <div className="booking__left__button__each" onClick={() => { props.checkFairClicked() }}>
-                            Check Fair {'\u00A0'} <span className='nav__icon'>▶</span>
+                            Check Fair<span className='nav__icon'>▶</span>
                         </div>
                     </div>
                 </div>
