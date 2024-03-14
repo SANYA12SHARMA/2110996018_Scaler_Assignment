@@ -2,8 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Cab Booking Web App",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
+
   "scripts": {
     "start-dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
