@@ -5,6 +5,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import pathRoute from './routes/findShortestPath.js';
 import cabRoute from './routes/findCab.js';
+import userBookingRoute from './routes/bookingCab.js';
+import allBookingsRoute from './routes/allCabsBookings.js';
 dotenv.config();
 
 const app = express();
@@ -35,6 +37,8 @@ app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/path',pathRoute);
 app.use('/api/cab',cabRoute);
+app.use('/api/user',userBookingRoute);
+app.use('/api/allBookings',allBookingsRoute);
 
 app.listen(port, ()=>{
     connectDB();
