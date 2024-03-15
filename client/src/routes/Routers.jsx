@@ -124,15 +124,19 @@ const Routers = (props) => {
     }
     Axios.post("http://localhost:5000/api/user/bookCab",
     {
-
-      source:sourceLocation,
-      destination:destLocation,
+      userEmail:email,
       userCabData:ele,
       totalTime:time,
       totalPrice:price,
-      userEmail:email
+      source:sourceLocation,
+      destination:destLocation,
 
     }).then((res)=>{
+      if(res.data.data===false)
+      {
+        console.error(res.data.error);
+        return
+      }
       console.log(res.data)
       fetchAllUsers();
       fetchAllCabDetail()

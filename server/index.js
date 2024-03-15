@@ -7,6 +7,7 @@ import pathRoute from './routes/findShortestPath.js';
 import cabRoute from './routes/findCab.js';
 import userBookingRoute from './routes/bookingCab.js';
 import allBookingsRoute from './routes/allCabsBookings.js';
+import dataRoute from './routes/userData.js';
 dotenv.config();
 
 const app = express();
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/path',pathRoute);
 app.use('/api/cab',cabRoute);
 app.use('/api/user',userBookingRoute);
+app.use('/api/getUserData',dataRoute);
 app.use('/api/allBookings',allBookingsRoute);
 
 app.listen(port, ()=>{
