@@ -1,8 +1,9 @@
 # Cab System Web Application
 
 ## Description
-This web application serves as a cab booking system where users can easily book cabs to travel from one location to another. The system calculates the shortest time and estimated cost for the journey based on the user's input.
-The shortestPath.java file contains the implementation of Dijkstra's algorithm to calculate the shortest path between source and destination. It utilizes a graph representation and priority queue implementation.It is called from the Node.js application using the child_process module. The script takes the source and destination as input arguments and returns the result to the Node.js application.
+- This web application serves as a cab booking system where users can easily book cabs to travel from one location to another. The system calculates the shortest time and estimated cost for the journey based on the user's input.
+- The shortestPath.java file contains the implementation of Dijkstra's algorithm to calculate the shortest path between source and destination. It utilizes a graph representation and priority queue implementation.It is called from the Node.js application using the child_process module. The script takes the source and destination as input arguments and returns the result to the Node.js application.
+- Admins can view all the user's email id, the number of cabs they have booked who booked cabs from the website.
 
 ##  Features
 - Cab Booking Management: Users can book cabs by providing their email, source, and destination.
