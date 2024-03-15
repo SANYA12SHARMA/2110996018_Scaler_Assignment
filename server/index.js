@@ -14,7 +14,9 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 const corsOptions = {
-    origin: true
+    origin: 'https://cab-frontend-sepia.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.get('/',(req, res)=>{
@@ -34,7 +36,9 @@ const connectDB = async()=>{
 
 //middleware
 app.use(express.json());
-app.use(cors());
+
+
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/path',pathRoute);
 app.use('/api/cab',cabRoute);
