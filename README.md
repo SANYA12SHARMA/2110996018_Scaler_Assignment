@@ -1,11 +1,5 @@
 # Cab System Web Application
 
-<p>
-<img src="https://img.shields.io/badge/ReactJS-blue?logo=react"
-<img src="https://img.shields.io/badge/Backend-NodeJS-green?logo=node.js">
-<img src="https://img.shields.io/badge/DataBase-MongoDB-lightgreen?logo=mongoDB">
-</p>
-
 ## Description
 This web application serves as a cab booking system where users can easily book cabs to travel from one location to another. The system calculates the shortest time and estimated cost for the journey based on the user's input.
 The shortestPath.java file contains the implementation of Dijkstra's algorithm to calculate the shortest path between source and destination. It utilizes a graph representation and priority queue implementation.It is called from the Node.js application using the child_process module. The script takes the source and destination as input arguments and returns the result to the Node.js application.
@@ -49,6 +43,10 @@ Client and server must run concurrently in different terminal session, in order 
 ### Server-side usage(PORT: 5000)
 
 ### Prepare your secret: You need to add a mongoose Connection String in .env to connect to MongoDB
+
+## Author
+### Sanya Sharma 
+### Email Address : sanyaasharma3214@gmail.com
 
 
 
