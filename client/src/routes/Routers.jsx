@@ -7,9 +7,7 @@ import { useEffect,useState } from 'react';
 import Axios from 'axios';
 import destinationsId from '../assets/data/destinationsId.json';
 import Cabs from '../pages/Cabs';
-const Routers = (props) => {
-
-  
+const Routers = () => {
   const [email,setEmail]=useState("")
   const [sourceLocation,setSourceLocation]=useState("")
   const [destLocation,setDestLocation]=useState("")
@@ -24,14 +22,13 @@ const Routers = (props) => {
   function fetchAllUsers()
   {
     setAllUserLoading(true)
-    Axios.get('http://localhost:5000/api/user/userData',
+    Axios.get('http://localhost:5000/api/getUserData/userData',
     {}
     ).then((res)=>{
       setAllUsers(res.data.data)
       setAllUserLoading(false)
     });
   }
-
   function fetchCabs()
   {
     setCabDisplayLoading(true)
@@ -46,8 +43,6 @@ const Routers = (props) => {
       setCabDisplayLoading(false);
     });
   }
-
-
   function fetchAllCabDetail()
   {
     setAllCabsLoading(true)
@@ -62,13 +57,11 @@ const Routers = (props) => {
       setAllCabsLoading(false);
     });
   }
-
   useEffect(() => {
     fetchCabs();
     fetchAllUsers();
     fetchAllCabDetail()
   }, []);
-
   function changeSource(value)
   {
     setSourceLocation(value);
@@ -81,8 +74,6 @@ const Routers = (props) => {
   {
     setDestLocation(value);
   }
-
-
   function checkFairClicked()
   {
     var emailCheck=/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -101,11 +92,8 @@ const Routers = (props) => {
       alert("Field is empty");
       return;
     }
-
-
-    
     setCabDisplayLoading(true);
-    Axios.post("http://localhost:5000/api/path/shortestPath",
+    Axios.post('http://localhost:5000/api/path/shortestPath',
     {
       source:destinationsId[sourceLocation],
       destination:destinationsId[destLocation]
@@ -113,7 +101,6 @@ const Routers = (props) => {
       setTotalTime(res.data)
       setCabDisplayLoading(false);
     });
-
   }
   function cabBookClicked(ele,price,time)
   {
@@ -122,7 +109,7 @@ const Routers = (props) => {
       alert("check fair first")
       return
     }
-    Axios.post("http://localhost:5000/api/user/bookCab",
+    Axios.post('http://localhost:5000/api/user/bookCab',
     {
       userEmail:email,
       userCabData:ele,
@@ -139,7 +126,7 @@ const Routers = (props) => {
       }
       console.log(res.data)
       fetchAllUsers();
-      fetchAllCabDetail()
+      fetchAllCabDetail();
     });
   }
   return (
@@ -157,5 +144,4 @@ const Routers = (props) => {
     </Routes>
   )
 }
-
 export default Routers

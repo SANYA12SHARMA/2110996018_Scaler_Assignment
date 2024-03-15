@@ -5,13 +5,11 @@ import { BrowserRouter } from 'react-router-dom'
 const Layout = () => {
   return (
     <>
-        <Header />
         <BrowserRouter>
+        <Header />
         <Routers />
         </BrowserRouter>
-        
     </>
   )
 }
-
 export default Layout

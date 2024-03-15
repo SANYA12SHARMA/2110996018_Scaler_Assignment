@@ -1,19 +1,12 @@
-
-
 const BookingCard = (props) => {
     return (
-        <div className="booking__cab__card">
-            <div className="booking__cab__card__img">
-                <img src={require('../../assets/images/' + props.ele.cabImage)} style={{ width: "100%", height: "100%" }} />
-            </div>
-            <div className="booking__cab__card__content">
-                <div className="booking__cab__card__content__top">
-                    <div className="booking__cab__card__content__left">
-                        <div className="booking__cab__card__content__left__heading">
-                            {props.ele.cabName}
-                        </div>
-                        <div className="booking__cab__card__content__left__heading__small">
-                            {props.totalTime ? (
+        <div className="bookingCabContainer">
+                <img src={require('../../assets/images/' + props.ele.cabImage)} style={{ width: "50px", height: "60px" }} alt="cab"/>
+            <div className="bookingCabContent">
+                <div className="bookingCabContent_1">
+                    <div>
+                        <p style={{fontWeight:'bold'}}>{props.ele.cabName}</p>
+                        <p>{props.totalTime ? (
                                 <>
                                     {props.totalTime} min
                                 </>
@@ -22,23 +15,19 @@ const BookingCard = (props) => {
                                     -
                                 </>
                             )}
-                        </div>
+                        </p>
                     </div>
-                    <div className="booking__cab__card__content__right">
-                        <div className="booking__cab__card__content__left__heading">
-                            {props.totalTime * props.ele.cabPrice}/-
-                        </div>
-                        <div className="booking__cab__card__content__left__heading__small">
-                            {props.ele.cabPrice}/min
-                        </div>
-                    </div>
+                    <p>{props.totalTime * props.ele.cabPrice}/-</p>
+                    <p>{props.ele.cabPrice}/min</p>
                 </div>
-                <div className="booking__cab__card__content__bottom" onClick={() => { props.cabBookClicked(props.ele, props.totalTime * props.ele.cabPrice, props.totalTime) }}>
-                    Book ▶
+                <div className="bookingCabBookBtn" onClick={() => { 
+                     console.log("Button clicked"); 
+                     console.log(props.ele);
+                    props.cabBookClicked(props.ele, props.totalTime * props.ele.cabPrice, props.totalTime) }}>
+                    Book 
                 </div>
             </div>
         </div>
     );
 }
-
 export default BookingCard;
