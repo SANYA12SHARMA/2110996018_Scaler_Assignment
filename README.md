@@ -33,19 +33,20 @@ The shortestPath.java file contains the implementation of Dijkstra's algorithm t
 ### Backend:
 - Node.js with Express.js framework
 - MongoDB for database management
-- 
-## clone or download
+
+## Getting Started
+## #clone or download
 ```terminal
 $ git clone https://github.com/SANYA12SHARMA/2110996018_Scaler_Assignment.git
 $ cd client(ReactJs),cd server(NodeJs)
 $ yarn # or npm i
 ```
 
-notice, you need client and server runs concurrently in different terminal session, in order to make them connect to each other
+notice, you need client and server runs concurrently in different terminal session, in order to connect them.
 
-## Client-side usage(PORT: 3000)
+### Client-side usage(PORT: 3000)
 
-## Server-side usage(PORT: 5000)
+### Server-side usage(PORT: 5000)
 
 ### Prepare your secret: You need to add a mongoose Connection String in .env to connect to MongoDB
 
