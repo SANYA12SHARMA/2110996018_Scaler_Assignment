@@ -45,6 +45,9 @@ Client and server must run concurrently in different terminal session, in order 
 
 ### Prepare your secret: You need to add a mongoose Connection String in .env to connect to MongoDB
 
+## Deployment
+### Frontend : https://cab-frontend-sepia.vercel.app/
+### Backend : https://cab-book-system.onrender.com/ (Deployed manually on Render)
 ## Author
 ### Sanya Sharma 
 ### Email Address : sanyaasharma3214@gmail.com
