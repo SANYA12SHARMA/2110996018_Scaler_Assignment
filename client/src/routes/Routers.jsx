@@ -35,7 +35,6 @@ const Routers = () => {
     Axios.get('http://localhost:5000/api/cab/findCab',
     {}
     ).then((res)=>{
-      // console.log
       if(res.data!==null)
       {
         setCabData(res.data)
@@ -49,7 +48,6 @@ const Routers = () => {
     Axios.get('http://localhost:5000/api/allBookings/allCabBookings',
     {}
     ).then((res)=>{
-      console.log(res.data)
       if(res.data!==null)
       {
         setAllCabs(res.data)
@@ -106,7 +104,7 @@ const Routers = () => {
   {
     if(time===null || email==="" || sourceLocation==="" || destLocation==="")
     {
-      alert("check fair first")
+      alert("Check Pricing.")
       return
     }
     Axios.post('http://localhost:5000/api/user/bookCab',
@@ -121,7 +119,7 @@ const Routers = () => {
     }).then((res)=>{
       if(res.data.data===false)
       {
-        console.error(res.data.error);
+        console.log("no data as cab is not booked.");
         return
       }
       console.log(res.data)
