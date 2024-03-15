@@ -47,7 +47,7 @@ Client and server must run concurrently in different terminal session, in order 
 
 ## Deployment
 ### Frontend : https://cab-frontend-sepia.vercel.app/
-### Backend : https://cab-book-system.onrender.com/ (Deployed manually on Render)
+
 ## Author
 ### Sanya Sharma 
 ### Email Address : sanyaasharma3214@gmail.com
