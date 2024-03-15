@@ -1,22 +1,27 @@
 import React from 'react'
 import logo from '../../assets/images/logo.png';
-const Header = (props) => {
+import { Link } from 'react-router-dom';
+const Header = () => {
   return (
-    <header>
-    <div className="logo">
-        <img src={logo} alt="Cab Logo" />
-    </div>
-    <nav>
-      <ul>
-        <li>
-          Users
-        </li>
-        <li>
-          Cab Bookings
-        </li>
-      </ul>
-    </nav>
-  </header>
+      <header>
+          <div className="logo">
+              <img src={logo} alt="Cab Logo"  />
+          </div>
+          <h1 style={{textDecoration:'underline'}}>Book Your Cab</h1>
+          <nav>
+              <ul>
+                  <li>
+                      <Link to='/'>Home</Link>
+                  </li>
+                  <li>
+                      <Link to='/users'>Users</Link>
+                  </li>
+                  <li>
+                      <Link to='/cabs'>Cab Bookings</Link>
+                  </li>
+              </ul>
+          </nav>
+      </header>
   )
 }
 
