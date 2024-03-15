@@ -17,7 +17,7 @@ const Cabs = (props) => {
                             <>Loading</>
                         ) : (
                             props.allCabs.map((ele) => (
-                                <UserCard flag={props.flag} ele={ele} />
+                                <UserCard key={ele._id} flag={props.flag} ele={ele} />
                             ))
                         )
                     }

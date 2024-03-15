@@ -1,8 +1,18 @@
 import CabUsers from '../models/CabUserSchema.js';
 import Booking from '../models/BookingSchema.js';
-
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
 const dateObject = new Date(); // creating date and time object for the timestamp
 
+dotenv.config();
+const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: process.env.USER_EMAIL,
+        pass: process.env.USER_PASSWORD
+    }
+});
 export const book = async (req, res) => {
     const { userEmail, userCabData, totalTime, totalPrice, source, destination } = req.body;
 
@@ -40,7 +50,8 @@ export const book = async (req, res) => {
     // Check if the cab is already booked during the specified time range
     const isOverlap = await isBookingOverlap();
     if (isOverlap) {
-        return res.status(200).send({ message: "Cab is already booked during this time.", data: false });
+        return res.status(200).send({ message: "This cab is already booked during this time.", data: false
+     });
     }
 
     try {
@@ -65,7 +76,7 @@ export const book = async (req, res) => {
             console.log("timeDifferenceHours:", timeDifferenceHours);
             if (timeDifferenceHours === 0) {
                 if (timeDifferenceMinutes < req.body.totalTime) {
-                    res.status(200).send({ message: "Already In a Cab!!", data: false });
+                    res.status(200).send({ message: "You are already In a Cab!!", data: false });
                     return;
                 }
             }
@@ -101,6 +112,26 @@ export const book = async (req, res) => {
                     cabSeats: userCabData["cabSeats"]
                 }
             });
+            // Assigning main function to a variable
+const main = async () => {
+    try {
+      // send mail with defined transport object
+      const info = await transporter.sendMail({
+        from: process.env.USER_EMAIL, // sender address
+        to: userEmail, // list of receivers
+        subject: "Booking Confirmed", // Subject line
+        text: `Hi this is your cab name : ${userCabData["cabName"]}`, // plain text body
+      });
+  
+      console.log("Message sent: %s", info.messageId);
+      // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+    } catch (error) {
+      console.error("Error sending mail:", error);
+    }
+  };
+  
+  // Call the main function
+  main().catch(console.error);
         }
         res.status(200).send({ message: existingUser ? "UpdateSuccess" : "InsertUpdateSuccess", data: userEmail });
     } catch (error) {

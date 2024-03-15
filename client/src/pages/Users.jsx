@@ -12,12 +12,19 @@ const Users = (props) => {
                          <div className="userTop1">User Email</div>
                          <div className="userTop1">Bookings</div>
                      </div>
-                     {Array.isArray(props.allUsers) && props.allUsers.length > 0 ? 
-                     (
-                        props.allUsers.map((ele) => (
-                            <UserCard flag={props.flag} ele={ele} />
-                            ))
-                        ) : (<p></p>)
+                     {
+                        props.allUserLoading?(
+                            <>Loading</>
+                        ):(
+                            props.allUsers.map((ele)=>{
+                                return(
+                                    <>
+                                    <UserCard key={ele._id} flag={props.flag} ele={ele}/>
+                                    </>
+                                )
+                            })
+                        )
+                        
                     }
                  </div>
              </div>

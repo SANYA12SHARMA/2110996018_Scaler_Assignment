@@ -22,7 +22,7 @@ const BookingCard = (props) => {
                 </div>
                 <div className="bookingCabBookBtn" onClick={() => { 
                      console.log("Button clicked"); 
-                     console.log(props.ele);
+                     console.log("Props Data: ",props.ele);
                     props.cabBookClicked(props.ele, props.totalTime * props.ele.cabPrice, props.totalTime) }}>
                     Book 
                 </div>
@@ -30,4 +30,5 @@ const BookingCard = (props) => {
         </div>
     );
 }
+
 export default BookingCard;

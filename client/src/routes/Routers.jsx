@@ -7,6 +7,8 @@ import { useEffect,useState } from 'react';
 import Axios from 'axios';
 import destinationsId from '../assets/data/destinationsId.json';
 import Cabs from '../pages/Cabs';
+
+
 const Routers = () => {
   const [email,setEmail]=useState("")
   const [sourceLocation,setSourceLocation]=useState("")
@@ -25,8 +27,8 @@ const Routers = () => {
     Axios.get('http://localhost:5000/api/getUserData/userData',
     {}
     ).then((res)=>{
-      setAllUsers(res.data.data)
-      setAllUserLoading(false)
+      setAllUsers(res.data.data);
+      setAllUserLoading(false);
     });
   }
   function fetchCabs()
@@ -37,7 +39,7 @@ const Routers = () => {
     ).then((res)=>{
       if(res.data!==null)
       {
-        setCabData(res.data)
+        setCabData(res.data);
       }
       setCabDisplayLoading(false);
     });
@@ -104,8 +106,8 @@ const Routers = () => {
   {
     if(time===null || email==="" || sourceLocation==="" || destLocation==="")
     {
-      alert("Check Pricing.")
-      return
+      alert("Check Pricing.");
+      return;
     }
     Axios.post('http://localhost:5000/api/user/bookCab',
     {
@@ -119,17 +121,18 @@ const Routers = () => {
     }).then((res)=>{
       if(res.data.data===false)
       {
-        console.log("no data as cab is not booked.");
+        alert(res.data.message);
         return
       }
       console.log(res.data)
+      alert("Cab Booked Successfully");
       fetchAllUsers();
       fetchAllCabDetail();
     });
   }
   return (
     <Routes>
-      <Route path="/users" element={<Users  flag={1} allUsers={allUsers} allUserLoading={allUserLoading}/>}/>
+     
       <Route path="/" element={<Home/>}/>
       <Route path="/home" element={<Home/>}/>
       <Route path="/bookings" element={<Bookings changeDest={changeDest} sourceLocation={sourceLocation} 
@@ -139,6 +142,7 @@ const Routers = () => {
           cabDisplayLoading={cabDisplayLoading} cabBookClicked={cabBookClicked}/>}/>
           <Route path="/cabs" element={<Cabs flag={0}
         allCabs={allCabs} allCabsLoading={allCabsLoading}/>}/>
+         <Route path="/users" element={<Users flag={1} allUsers={allUsers} allUserLoading={allUserLoading}/>}/>
     </Routes>
   )
 }
