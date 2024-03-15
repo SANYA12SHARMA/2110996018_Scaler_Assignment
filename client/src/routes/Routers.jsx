@@ -24,7 +24,7 @@ const Routers = () => {
   function fetchAllUsers()
   {
     setAllUserLoading(true)
-    Axios.get('https://cab-backend-rouge.vercel.app/api/getUserData/userData',
+    Axios.get('https://cab-book-system.onrender.com/api/getUserData/userData',
     {}
     ).then((res)=>{
       setAllUsers(res.data.data);
@@ -34,7 +34,7 @@ const Routers = () => {
   function fetchCabs()
   {
     setCabDisplayLoading(true)
-    Axios.get('https://cab-backend-rouge.vercel.app/api/cab/findCab',
+    Axios.get('https://cab-book-system.onrender.com/api/cab/findCab',
     {}
     ).then((res)=>{
       if(res.data!==null)
@@ -47,7 +47,7 @@ const Routers = () => {
   function fetchAllCabDetail()
   {
     setAllCabsLoading(true)
-    Axios.get('https://cab-backend-rouge.vercel.app/api/allBookings/allCabBookings',
+    Axios.get('https://cab-book-system.onrender.com/api/allBookings/allCabBookings',
     {}
     ).then((res)=>{
       if(res.data!==null)
@@ -93,7 +93,7 @@ const Routers = () => {
       return;
     }
     setCabDisplayLoading(true);
-    Axios.post('https://cab-backend-rouge.vercel.app/api/path/shortestPath',
+    Axios.post('https://cab-book-system.onrender.com/api/path/shortestPath',
     {
       source:destinationsId[sourceLocation],
       destination:destinationsId[destLocation]
@@ -109,7 +109,7 @@ const Routers = () => {
       alert("Check Pricing.");
       return;
     }
-    Axios.post('https://cab-backend-rouge.vercel.app/api/user/bookCab',
+    Axios.post('https://cab-book-system.onrender.com/api/user/bookCab',
     {
       userEmail:email,
       userCabData:ele,
