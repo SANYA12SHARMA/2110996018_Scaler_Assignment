@@ -35,14 +35,14 @@ The shortestPath.java file contains the implementation of Dijkstra's algorithm t
 - MongoDB for database management
 
 ## Getting Started
-## #clone or download
+### clone or download
 ```terminal
 $ git clone https://github.com/SANYA12SHARMA/2110996018_Scaler_Assignment.git
 $ cd client(ReactJs),cd server(NodeJs)
 $ yarn # or npm i
 ```
 
-notice, you need client and server runs concurrently in different terminal session, in order to connect them.
+Client and server must run concurrently in different terminal session, in order to connect them.
 
 ### Client-side usage(PORT: 3000)
 
